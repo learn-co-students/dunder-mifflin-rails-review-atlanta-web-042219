@@ -1,0 +1,4 @@
+<%  class_name = @model.class.to_s.downcase %>
+<%= link_to 'Update', send(['edit_' << class_name, '_path'].join) %><br>
+<%= link_to 'Delete', send([class_name, '_path'].join, @model), method: :delete %><br>
+<%= link_to 'Back',   send(class_name.pluralize << '_path') %>

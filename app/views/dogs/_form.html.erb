@@ -1,0 +1,22 @@
+<h1><%= @header_msg %></h1>
+
+<ul>
+  <% @dog.errors.full_messages.each do |error| %>
+    <li style="color: red;"><%= error %></li>
+  <% end %>
+</ul>
+
+<%= form_for(@dog) do |f| %>
+
+  Name<br><%= f.text_field :name %><br><br>
+  Breed<br><%= f.text_field :breed %><br><br>
+  Age<br><%= f.text_field :age %><br><br>
+
+  Owners<br>
+  <% Employee.all.each do |e| %>
+  	<input type="checkbox" name="dog[employee_ids][]" value=<%= e.id %>> <%= e.to_s %><br>
+  <% end %>
+  <br><br>
+
+  <%= f.submit @button_msg%>
+<% end %>

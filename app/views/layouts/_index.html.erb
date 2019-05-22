@@ -1,0 +1,11 @@
+<h1>All <%= @model.class.to_s.pluralize %></h1>
+
+<% class_name = @model.class.to_s.downcase %>
+<h3>
+<% @model.class.all.each do |obj| %>
+  <%= link_to obj.send(@link_attr), send([class_name, '_path'].join, obj) %><br>
+<% end %>
+</h3>
+
+<%= link_to 'Add new ' << class_name, send(['new_' << class_name, '_path'].join) %><br>
+<%= link_to 'Home', '/' %>
