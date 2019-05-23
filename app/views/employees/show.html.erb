@@ -1,0 +1,13 @@
+<img src = "<%= @Employee.img_url %>"><br>
+
+Name: <%= @Employee.first_name %> <%= @Employee.last_name %><br>
+Alias: <%= @Employee.alias %><br>
+Title: <%= @Employee.title %><br>
+Office: <%= @Employee.office %><br>
+Dog: <%= link_to @Employee.dog.name, dog_path(@Employee.dog)%>
+<br>
+<br>
+
+<%=link_to "Edit", edit_employee_path %><br>
+<%=link_to "Delete", employee_path, method: :delete%><br>
+<%=link_to "Back to Employees lists", employees_path %>

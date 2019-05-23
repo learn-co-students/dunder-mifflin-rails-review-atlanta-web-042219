@@ -1,0 +1,33 @@
+<h1><%= @header_msg %></h1>
+
+<ul>
+    <% @Employee.errors.full_messages.each do |error| %>
+        <li style="color: red;"><%= error %></li>
+    <% end %>
+</ul>
+
+<%= form_for(@Employee) do |f| %>
+ <label>First Name: </label><br>
+ <%= f.text_field :first_name %><br><br>
+
+ <label>Last Name: </label><br>
+ <%= f.text_field :last_name %><br><br>
+
+ <label>Alias: </label><br>
+ <%= f.text_field :alias %><br><br>
+
+ <label>Title: </label><br>
+ <%= f.text_field :title %><br><br>
+
+ <label>Office: </label><br>
+ <%= f.text_field :office %><br><br>
+
+ <label>img_url: </label><br>
+ <%= f.text_field :img_url %><br><br> 
+
+ <label>Dog list: </label><br>
+ <%= f.collection_select(:dog_id, Dog.all, :id, :name)%><br><br> 
+ <%= f.submit @button_msg%>
+<% end %>
+<br>
+<%= button_to "Back", employees_path, method: :get %>
