@@ -1,6 +1,11 @@
 <img src="<%= @employee.img_url %>">
 
-<h1><%= @employee.to_s %> aka <%= @employee.alias %></h1>
+<h1>
+	<%= @employee.to_s %>
+	<% if @employee.alias != 'none' && @employee.alias != nil %>
+		aka <%= @employee.alias %>
+	<% end %>
+</h1>
 
 <h3>
 	<%= @employee.title %> at <%= @employee.office %><br>
