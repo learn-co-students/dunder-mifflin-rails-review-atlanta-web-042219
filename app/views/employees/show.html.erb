@@ -1,0 +1,19 @@
+<img src="<%= @employee.img_url %>">
+
+<h1>
+	<%= @employee.to_s %>
+	<% if @employee.alias != 'none' && @employee.alias != nil %>
+		aka <%= @employee.alias %>
+	<% end %>
+</h1>
+
+<h3>
+	<%= @employee.title %> at <%= @employee.office %><br>
+
+	<% if @employee.dog %>
+		<%= link_to @employee.dog.name, dog_path(@employee.dog) %> is <%= @employee.first_name %>'s dog.
+		<% end %>
+</h3>
+
+<% @model = @employee %>
+<%= render 'layouts/show_links' %>
